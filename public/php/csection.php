@@ -3,7 +3,7 @@
     include('header.php');
 ?>
     <!-------------HEADER------------>
-    <div class="page-header header-filter" data-parallax="true" style="background-image: url('assets/img/profile_city.jpg');height:300px;">
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('/img/profile_city.jpg');height:300px;">
         <div class="container">
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
