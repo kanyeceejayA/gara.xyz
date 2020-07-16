@@ -1,0 +1,33 @@
+{
+  "name": "gara.xyz",
+  "version": "1.0.0",
+  "description": "Surgery Checklist",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "mocha": "^8.0.1"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanyeceejayA/gara.xyz.git"
+  },
+  "author": "Yusuf Mugagga Kasajja || Kanyesigye Akbr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanyeceejayA/gara.xyz/issues"
+  },
+  "homepage": "https://github.com/kanyeceejayA/gara.xyz#readme",
+  "keywords": []
+}
