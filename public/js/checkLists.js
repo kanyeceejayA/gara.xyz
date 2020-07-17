@@ -1,72 +1,55 @@
-/* eslint-disable no-undef */
-// add items
-$('#add-todo').click(function () {
-  const lastSibling = $('#todo-list > .todo-wrap:last-of-type > input').attr('id');
-  const newId = Number(lastSibling) + 1;
+// Create a "close" button and append it to each list item
+const myNodelist = document.getElementsByTagName('LI');
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  const span = document.createElement('SPAN');
+  const txt = document.createTextNode('\u00D7');
+  span.className = 'close';
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
 
-  $(this).before(`<span class="editing todo-wrap"><input type="checkbox" id="${newId}"/><label for="${newId}" class="todo"><i class="fa fa-check"></i><input type="text" class="input-todo" id="input-todo${newId}"/></label></div>`);
-  $(`#input-todo${newId}`).parent().parent().animate({
-    height: '36px',
-  }, 200);
-  $(`#input-todo${newId}`).focus();
+// Click on a close button to hide the current list item
+const close = document.getElementsByClassName('close');
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function () {
+    const div = this.parentElement;
+    div.style.display = 'none';
+  };
+}
 
-  $(`#input-todo${newId}`).enterKey(function () {
-    $(this).trigger('enterEvent');
-  });
+// Add a "checked" symbol when clicking on a list item
+const list = document.querySelector('ul');
+list.addEventListener('click', (ev) => {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 
-  $(`#input-todo${newId}`).on('blur enterEvent', function () {
-    const todoTitle = $(`#input-todo${newId}`).val();
-    const todoTitleLength = todoTitle.length;
-    if (todoTitleLength > 0) {
-      $(this).before(todoTitle);
-      $(this).parent().parent().removeClass('editing');
-      $(this).parent().after('<span class="delete-item" title="remove"><i class="fa fa-times-circle"></i></span>');
-      $(this).remove();
-      $('.delete-item').click(function () {
-        const parentItem = $(this).parent();
-        parentItem.animate({
-          left: '-30%',
-          height: 0,
-          opacity: 0,
-        }, 200);
-        setTimeout(() => {
-          $(parentItem).remove();
-        }, 1000);
-      });
-    } else {
-      $('.editing').animate({
-        height: '0px',
-      }, 200);
-      setTimeout(() => {
-        $('.editing').remove();
-      }, 400);
-    }
-  });
-});
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  const li = document.createElement('li');
+  const inputValue = document.getElementById('myInput').value;
+  const t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert('You must write something!');
+  } else {
+    document.getElementById('myUL').appendChild(li);
+  }
+  document.getElementById('myInput').value = '';
 
-// remove items
+  const span = document.createElement('SPAN');
+  const txt = document.createTextNode('\u00D7');
+  span.className = 'close';
+  span.appendChild(txt);
+  li.appendChild(span);
 
-$('.delete-item').click(function () {
-  const parentItem = $(this).parent();
-  parentItem.animate({
-    left: '-30%',
-    height: 0,
-    opacity: 0,
-  }, 200);
-  setTimeout(() => {
-    $(parentItem).remove();
-  }, 1000);
-});
-
-// Enter Key detect
-
-$.fn.enterKey = function (fnc) {
-  return this.each(function () {
-    $(this).keypress(function (ev) {
-      const keycode = (ev.keyCode ? ev.keyCode : ev.which);
-      if (keycode == '13') {
-        fnc.call(this, ev);
-      }
-    });
-  });
-};
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      const div = this.parentElement;
+      div.style.display = 'none';
+    };
+  }
+}
