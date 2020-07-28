@@ -1,4 +1,4 @@
-@import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css') .funkyradio div {
+/* @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css') .funkyradio div {
     clear: both;
     overflow: hidden;
 }
@@ -72,4 +72,21 @@
     color: #fff;
     background-color: #d9534f;
 }
+ */
 
+ .listHead{
+     font-weight: bold;
+     background-color: grey;
+     color: #ffff;
+     padding: 25px;
+     border-radius: 10px;
+ }
+
+ .addition{
+     text-align: center;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+
+ .lastList{
+     background-color: rgba(186, 235, 235, 0.5);
+ }
